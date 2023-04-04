@@ -4,4 +4,4 @@ This application is a book search engine where a user can search books and read 
 
 ## Screenshots
 
-(https://user-images.githubusercontent.com/122307878/229802447-7504685a-98db-48ae-b03f-e5dd07e928cb.png)
+![image](https://user-images.githubusercontent.com/122307878/229802447-7504685a-98db-48ae-b03f-e5dd07e928cb.png)
