@@ -26,16 +26,18 @@ const server = new ApolloServer({
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
-
+const startServer = async ()=>{ await server.start();
+  // And apply the middleware
+  server.applyMiddleware({ app });
 // Start the server after the Apollo Server has been applied
 db.once('open', async () => {
   // Add this line
-  await server.start();
-  // And apply the middleware
-  server.applyMiddleware({ app });
+
 
   app.listen(PORT, () => {
     console.log(`🌍 Now listening on localhost:${PORT}`);
     console.log(`🚀 GraphQL Server ready at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
+};
+startServer();

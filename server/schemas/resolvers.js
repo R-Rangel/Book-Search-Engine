@@ -42,6 +42,7 @@ const resolvers = {
       },
   
       saveBook: async (parent, { input }, context) => {
+        console.log(context);
         if (context.user) {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
@@ -51,8 +52,9 @@ const resolvers = {
   
           return updatedUser;
         }
-  
-        throw new Error('You need to be logged in!');
+        else{
+          throw new Error('You need to be logged in!');
+     }
       },
   
       removeBook: async (parent, { bookId }, context) => {
