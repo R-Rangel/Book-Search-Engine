@@ -19,21 +19,26 @@ const SavedBooks = () => {
 
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+  
     if (!token) {
       return false;
     }
-
+  
+    console.log(`bookId: ${bookId}`);
+  
     try {
       const { data } = await removeBook({
-        variables: { bookId }
+        variables: { bookId: String(bookId) }
       });
-
+  
+      console.log(`data: ${JSON.stringify(data)}`);
+  
       removeBookId(bookId);
     } catch (err) {
       console.error(err);
     }
   };
+  
 
   if (loading) {
     return <h2>LOADING...</h2>;

@@ -1,5 +1,6 @@
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
+const mongoose = require('mongoose')
 
 const resolvers = {
     Query: {
@@ -64,12 +65,14 @@ const resolvers = {
             { $pull: { savedBooks: { bookId } } },
             { new: true }
           );
-  
+      
           return updatedUser;
         }
-  
+      
         throw new Error('You need to be logged in!');
       },
+      
+      
     },
   };
   
