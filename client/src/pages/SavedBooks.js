@@ -24,14 +24,14 @@ const SavedBooks = () => {
       return false;
     }
   
-    console.log(`bookId: ${bookId}`);
+    
   
     try {
       const { data } = await removeBook({
-        variables: { bookId: String(bookId) }
+        variables: { bookId: bookId }
       });
   
-      console.log(`data: ${JSON.stringify(data)}`);
+     
   
       removeBookId(bookId);
     } catch (err) {
